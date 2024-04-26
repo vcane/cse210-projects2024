@@ -16,9 +16,8 @@ class Program
     Console.Write("Please enter your grade percentage. ");
     string percentage = Console.ReadLine();
     int gradePercentage = int.Parse(percentage);
-    string finalGrade;
-    // int secondNum;
-    // char sign;
+    string finalGrade = String.Empty;
+    string sign = String.Empty;
 
     if (gradePercentage >= 90)
     {
@@ -40,32 +39,38 @@ class Program
     {
       finalGrade = "F";
     }
-    //secondNum = int.Parse(percentage[1].ToString());
-    //Console.WriteLine($"Last digit: {secondNum}");
-    // if (secondNum >= 7)
-    // {
-    //   sign = '+';
-    // }
-    // if (secondNum < 3)
-    // {
-    //   sign = '-';
-    // }
-    //Console.WriteLine($"Sign: {sign}");
 
-    if (finalGrade == "C" || finalGrade == "B" || finalGrade == "A")
+    if (gradePercentage % 10 >= 7)
     {
-      if (finalGrade == "A")
+      sign = "+";
+    }
+
+    if (gradePercentage % 10 < 3)
+    {
+      sign = "-";
+    }
+
+    if (finalGrade == "D" || finalGrade == "C" || finalGrade == "B" || finalGrade == "A")
+    {
+      if (gradePercentage >= 93)
       {
-        Console.WriteLine("Your final grade is an A. You passed the class!");
+        Console.WriteLine($"Your final grade is an {finalGrade}. You passed the class!");
       }
       else
       {
-        Console.WriteLine($"Your final grade is a {finalGrade}. You passed the class.");
+        if (gradePercentage >= 70)
+        {
+          Console.WriteLine($"Your grade is {finalGrade}{sign}. You passed the class!");
+        }
+        else
+        {
+          Console.WriteLine($"Your final grade is a {finalGrade}{sign}. Unfortunately, you did not pass the class.");
+        }
       }
     }
     else
     {
-      Console.WriteLine($"Your final grade is a {finalGrade}. Unfortunately, you did not pass the class.");
+      Console.WriteLine("Your final grade is a F. Unfortunately, you did not pass the class.");
     }
   }
 }
