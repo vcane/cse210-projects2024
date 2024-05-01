@@ -1,0 +1,19 @@
+Class: Resume
+
+Attributes (state):
+* _name: string
+* _jobs: List<Job>
+
+Methods (behaviors):
+* DisplayResume(): void
+
+Class: Job
+
+Attributes (state):
+* _company: string
+* _jobTitle: string
+* _startYear: int
+* _endYear: int
+
+Methods (behaviors):
+* DisplayJob(): void
