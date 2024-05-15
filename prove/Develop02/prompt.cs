@@ -8,6 +8,9 @@ public class Prompt
     "How did I see the hand of the Lord in my life today?",
     "If I had one thing I could do over today, what would it be?"
   };
+
+  public Prompt() { }
+
   public string RetrievePrompt()
   {
     Random randomGenerator = new Random();

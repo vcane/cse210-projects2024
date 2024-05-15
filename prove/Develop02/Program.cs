@@ -28,27 +28,19 @@ class Program
       switch (userSelection)
       {
         case "1":
-          Console.WriteLine("Your prompt is....");
-          Console.WriteLine(prompt.RetrievePrompt());
-          entry._userResponse = Console.ReadLine();
-          // Console.WriteLine("Your response...");
-          // Console.WriteLine(entry._userResponse);
-          // Prompt prompt = new Prompt();
-          // Console.WriteLine("Displaying a prompt....");
-          // Console.WriteLine(prompt.RetrievePrompt());
+          journal.AddEntry();
           break;
         case "2":
-          Console.WriteLine("Displaying entry....");
-          Console.WriteLine(entry.DisplayEntry());
-          // Entry entry = new Entry();
-          // Console.WriteLine("Testing date.....");
-          // Console.WriteLine($"Short date: {entry._date}");
+          Console.WriteLine("Saving....");
+          journal.SaveJournal();
           break;
         case "3":
           Console.WriteLine("\nLoading...");
+          journal.LoadJournal();
           break;
         case "4":
           Console.WriteLine("\nDisplaying....");
+          journal.DisplayJournal();
           break;
         case "5":
           loopAgain = false;

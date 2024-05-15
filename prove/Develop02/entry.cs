@@ -1,19 +1,18 @@
 public class Entry
 {
-  Prompt prompt = new Prompt();
-  public string _date = DateTime.Now.ToShortDateString();
-  //public string _prompt; 
+  public string _date;
+  public string _prompt;
   public string _userResponse;
 
-  public string DisplayEntry()
+  public Entry() { }
+
+  public void DisplayEntry()
   {
-    return $"""
+    Console.WriteLine($"""
     {_date}
-    {prompt.RetrievePrompt()}
+    {_prompt}
     {_userResponse}
-    """;
-    // Console.WriteLine($"{_date}");
-    // Console.WriteLine($"{prompt.RetrievePrompt()}");
-    // Console.WriteLine($"{_userResponse}");
+    
+    """);
   }
 }
