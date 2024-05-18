@@ -1,11 +1,9 @@
-using System;
-
 class Program
 {
   static void Main(string[] args)
   {
-    Entry entry = new Entry();
-    Prompt prompt = new Prompt();
+    // Entry entry = new Entry();
+    // Prompt prompt = new Prompt();
     Journal journal = new Journal();
     bool loopAgain = true;
 
@@ -31,15 +29,12 @@ class Program
           journal.AddEntry();
           break;
         case "2":
-          Console.WriteLine("Saving....");
           journal.SaveJournal();
           break;
         case "3":
-          Console.WriteLine("\nLoading...");
           journal.LoadJournal();
           break;
         case "4":
-          Console.WriteLine("\nDisplaying....");
           journal.DisplayJournal();
           break;
         case "5":

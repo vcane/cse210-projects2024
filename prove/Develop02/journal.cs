@@ -1,8 +1,5 @@
-using System.IO;
-
 public class Journal
 {
-
   public List<Entry> _journalEntries = new List<Entry>();
 
   public Journal() { }
@@ -16,8 +13,6 @@ public class Journal
     {
       Entry journalEntry = new Entry();
       Prompt randoPrompt = new Prompt();
-
-      journalEntry._date = DateTime.Now.ToShortDateString();
 
       journalEntry._prompt = randoPrompt.RetrievePrompt();
       Console.WriteLine("\nHere's your prompt.");
@@ -58,7 +53,7 @@ public class Journal
     Console.WriteLine("The program will save the journal to a text (.txt) file. The .txt extension will be added automatically.");
     Console.Write("Please enter the name of the file. ");
     string fileName = Console.ReadLine() + ".txt";
-    Console.WriteLine($"File name: {fileName}");
+    Console.WriteLine($"Your journal was saved to a file called {fileName}.");
 
     using (StreamWriter outputFile = new StreamWriter(fileName))
     {
@@ -75,13 +70,12 @@ public class Journal
     Console.WriteLine("The program will load the journal from a text (.txt) file. The .txt extension will be added automatically to the end of the file name.");
     Console.Write("Please enter the name of the file. ");
     string fileName = Console.ReadLine() + ".txt";
-    Console.WriteLine($"File name: {fileName}");
+    Console.WriteLine($"Loading your journal from {fileName}.");
 
     string[] lines = File.ReadAllLines(fileName);
 
     foreach (string line in lines)
     {
-      //Console.WriteLine(line);
       string[] parts = line.Split("~~");
 
       Entry journalEntry = new Entry();
