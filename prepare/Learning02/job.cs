@@ -1,13 +1,4 @@
 /*
-Class: Resume
-
-Attributes (state):
-* _name: string
-* _jobs: List<Job>
-
-Methods (behaviors):
-* DisplayResume(): void
-
 Class: Job
 
 Attributes (state):
@@ -18,7 +9,6 @@ Attributes (state):
 
 Methods (behaviors):
 * DisplayJob(): void
-
 */
 
 using System;

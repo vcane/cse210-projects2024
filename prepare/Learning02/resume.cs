@@ -1,15 +1,4 @@
 /*
-Class: Job
-
-Attributes (state):
-* _company: string
-* _jobTitle: string
-* _startYear: int
-* _endYear: int
-
-Methods (behaviors):
-* DisplayJob(): void
-
 Class: Resume
 
 Attributes (state):
@@ -18,7 +7,6 @@ Attributes (state):
 
 Methods (behaviors):
 * DisplayResume(): void
-
 */
 
 public class Resume
