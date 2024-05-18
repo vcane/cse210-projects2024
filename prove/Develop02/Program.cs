@@ -2,8 +2,6 @@ class Program
 {
   static void Main(string[] args)
   {
-    // Entry entry = new Entry();
-    // Prompt prompt = new Prompt();
     Journal journal = new Journal();
     bool loopAgain = true;
 
