@@ -1,0 +1,22 @@
+PlantUML URL
+//www.plantuml.com/plantuml/dpng/LO-n2i8m48RtFCMvDU0JT2eYkhbKN2Lf3rkuz4fomK5yTzk4IBlzF_-NBrmJn7Y9ZjH11dG8bYBEVfn4TMH2W8itdOmygOy2U0hFDQpZaYsBiCjrwGMizBQy1oQyHMVH9t8t5jiHDYwzogueTvwJgisni3glf_GW0_-sim1ailpModBLgz8rX9JoUiPkT8OUXYAkMy_H4gglQd3gewCV
+
+,-------------------------------.
+|Fraction                       |
+|-------------------------------|
+|_top: int                      |
+|_bottom: int                   |
+|                               |
+|Fraction()                     |
+|Fraction(wholeNumber: int)     |
+|Fraction(top: int, bottom: int)|
+|                               |
+|GetTop()                       |
+|SetTop(top: int)               |
+|GetBottom()                    |
+|SetBottom(bottom: int)         |
+|                               |
+|GetFractionString(): string    |
+|GetDecimalValue(): double      |
+`-------------------------------'
+
