@@ -1,14 +1,14 @@
 class Word
 {
-  private string _originalWord;
-  private string _convertedWord;
+  private string _word;
+  //private string _convertedWord;
   private bool _isHidden;
 
   public Word(string word)
   {
-    _originalWord = word;
-    _convertedWord = word;
-    char[] chars = _originalWord.ToCharArray();
+    _word = word;
+    //_convertedWord = word;
+    char[] chars = _word.ToCharArray();
     foreach (char c in chars)
     {
       if (c == '_')
@@ -29,24 +29,31 @@ class Word
 
   public void Hide()
   {
-    for (int i = 0; i < _convertedWord.Length; i++)
-    {
-      _convertedWord = _convertedWord.Replace(_convertedWord[i], '_');
-    }
     _isHidden = true;
   }
 
-  public void Show()
-  {
-    for (int i = 0; i < _convertedWord.Length; i++)
-    {
-      _convertedWord = _convertedWord.Replace(_convertedWord[i], _originalWord[i]);
-    }
-    _isHidden = false;
-  }
+  //MAY NOT NEED SHOW() CURRENTLY NOT USED ANYWHERE AND DON'T SEE A REASON TO USE
+
+  // public void Show()
+  // {
+  //   _isHidden = false;
+  // }
 
   public string RenderWord()
   {
-    return _convertedWord;
+    if (_isHidden == false)
+    {
+      return _word;
+    }
+    else
+    {
+      string underScoreWord = "";
+      foreach (char letter in _word)
+      {
+        underScoreWord += '_';
+      }
+      return underScoreWord;
+    }
+
   }
 }

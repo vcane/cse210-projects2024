@@ -5,6 +5,8 @@ public class Reference
   private string _verse = String.Empty;
   private string _secondVerse = String.Empty;
 
+  public Reference() { }
+
   public Reference(string book, string chapter, string verse)
   {
     _book = book;
