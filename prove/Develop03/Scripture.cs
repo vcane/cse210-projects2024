@@ -4,8 +4,6 @@ class Scripture
   private string _scriptureText;
   private List<Word> _scriptureWords = new List<Word>();
 
-
-  // single verse scripture
   public Scripture(Reference reference, string scriptureText)
   {
     _reference = reference;
@@ -18,18 +16,6 @@ class Scripture
       _scriptureWords.Add(word);
     }
   }
-
-  // two verse scripture
-  // public Scripture(Reference reference, string scriptureText, string endVerse)
-  // {
-  //   _reference = reference;
-  //   _scriptureText = scriptureText + " " + endVerse;
-  //   string[] scriptureWords = _scriptureText.Split(" ");
-  //   // foreach (string word in scriptureWords)
-  //   // {
-  //   //   Console.WriteLine(word);
-  //   // }
-  // }
 
   public bool AllWordsHidden()
   {
@@ -44,18 +30,25 @@ class Scripture
       {
         allWordsHidden = false;
       }
-      // else
-      // {
-      //   allWordsHidden = true;
-      // }
     }
     return allWordsHidden;
   }
 
+
+  // HideOneWord:
+  // if all words are hidden, return
+  // choose a random word
+  // while that random word is not hidden:
+  //   choose another random word
+  // hide the word (which is not yet hidden)
+  // return
+
+  // public void HideOneWord()
+  // {
+
+  // }
   public void HideWords()
   {
-    //generate random indices for word list
-    //grab word from word list and switch from _isHidden = false to _isHidden = true by using Hide()
     Random randNum = new Random();
 
     for (int i = 0; i < 3; i++)

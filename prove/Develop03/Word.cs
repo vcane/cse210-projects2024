@@ -1,13 +1,11 @@
 class Word
 {
   private string _word;
-  //private string _convertedWord;
   private bool _isHidden;
 
   public Word(string word)
   {
     _word = word;
-    //_convertedWord = word;
     char[] chars = _word.ToCharArray();
     foreach (char c in chars)
     {
