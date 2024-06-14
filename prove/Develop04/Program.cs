@@ -34,12 +34,13 @@ class Program
           breathingActivity.RunBreathingActivity();
           break;
         case "2":
-          Console.WriteLine("Start reflecting");
+          //Console.WriteLine("Start reflecting");
           reflectingActivity = new ReflectingActivity();
           reflectingActivity.RunReflectingActivity();
           break;
         case "3":
           Console.WriteLine("start listing");
+          listingActivity = new ListingActivity();
           break;
         case "4":
           Console.WriteLine("Quitting application...");
