@@ -5,7 +5,6 @@ public class Activity
   private string _description = "\nThis activity will help you";
   private int _duration;
   private string _congratulate = "Good job!";
-  //private string _endMessage = 
 
   public Activity() { }
 
@@ -21,7 +20,7 @@ public class Activity
 
   public string GetEndMessage()
   {
-    return $"You have completed another {_duration} seconds of ";
+    return $"You have completed another {_duration} seconds of the";
   }
 
   public int GetDuration()
@@ -35,23 +34,17 @@ public class Activity
   }
   public void SetDuration()
   {
-    //DateTime duration;
     Console.Write("How long, in seconds, would you like your session? ");
     _duration = int.Parse(Console.ReadLine());
-    // return DateTime.Now.AddSeconds(seconds);
-
-    //_duration = seconds;
-    //return DateTime.Parse(Console.ReadLine());
-    //return duration;
   }
 
   public void SpinnerPause()
   {
-    DateTime startTime = DateTime.Now;
-    DateTime endTime = startTime.AddSeconds(5);
+    DateTime spinnerStart = DateTime.Now;
+    DateTime spinnerEnd = spinnerStart.AddSeconds(5);
     int i = 0;
     List<string> animations = new List<string>() { "x", "+" };
-    while (DateTime.Now < endTime)
+    while (DateTime.Now < spinnerEnd)
     {
       string animation = animations[i];
       Console.Write(animation);
@@ -65,7 +58,6 @@ public class Activity
         i = 0;
       }
     }
-    // Console.WriteLine("Done.");
   }
 
   public void CountdownPause()
@@ -76,7 +68,5 @@ public class Activity
       Thread.Sleep(1000);
       Console.Write("\b \b");
     }
-
   }
-
 }

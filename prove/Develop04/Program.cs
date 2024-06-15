@@ -5,7 +5,6 @@ class Program
   static void Main(string[] args)
   {
     bool contLoop = true;
-    //Activity activity;
     ReflectingActivity reflectingActivity;
     BreathingActivity breathingActivity;
     ListingActivity listingActivity;
@@ -29,18 +28,17 @@ class Program
       switch (userInput)
       {
         case "1":
-          //Console.WriteLine("Start breathing");
           breathingActivity = new BreathingActivity();
           breathingActivity.RunBreathingActivity();
           break;
         case "2":
-          //Console.WriteLine("Start reflecting");
           reflectingActivity = new ReflectingActivity();
           reflectingActivity.RunReflectingActivity();
           break;
         case "3":
           Console.WriteLine("start listing");
           listingActivity = new ListingActivity();
+          listingActivity.RunListingActivity();
           break;
         case "4":
           Console.WriteLine("Quitting application...");

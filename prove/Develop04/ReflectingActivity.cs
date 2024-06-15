@@ -19,13 +19,15 @@ public class ReflectingActivity : Activity
     "What did you learn about yourself through this experience?",
     "How can you keep this experience in mind in the future?"
   };
-  private string _nameReflecting = "Reflecting Activity";
-  private string _randomPrompt = String.Empty;
-  private string _randomQuestion = String.Empty;
-  private Random _random;
-  private string _reflectingActivityDescription = "reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
+  private string _nameReflecting;
 
-  public ReflectingActivity() : base() { }
+  private string _reflectingActivityDescription;
+
+  public ReflectingActivity()
+  {
+    _nameReflecting = " Reflecting Activity";
+    _reflectingActivityDescription = "reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
+  }
 
   public void RunReflectingActivity()
   {
@@ -35,13 +37,12 @@ public class ReflectingActivity : Activity
 
     Console.WriteLine("Get ready....");
     SpinnerPause();
-    GenerateRandomPrompt();
     Console.WriteLine("Consider the following prompt:");
 
-    Console.WriteLine($"---{GetRandomPrompt()}---");
+    Console.WriteLine($"---{GenerateRandomPrompt()}---");
 
     Console.Write("When you have something in mind, press enter to continue.");
-    string pause = Console.ReadLine();
+    Console.ReadLine();
 
     Console.WriteLine("Now ponder on each of the following quesitons as they related to this experience.");
     Console.Write("You may begin in: ");
@@ -49,13 +50,12 @@ public class ReflectingActivity : Activity
 
     Console.Clear();
 
-    DateTime startTime = DateTime.Now;
+    DateTime startTime = DateTime.Now; // TODO figure out how to put the startTime and endTime in a method in Activity or a separate class
     DateTime endTime = startTime.AddSeconds(GetDuration());
 
     while (DateTime.Now < endTime)
     {
-      GenerateRandomQuestion();
-      Console.Write($"> {_randomQuestion} ");
+      Console.Write($"> {GenerateRandomQuestion()} ");
       SpinnerPause();
       Console.WriteLine();
     }
@@ -68,28 +68,17 @@ public class ReflectingActivity : Activity
     SpinnerPause();
   }
 
-  private void GenerateRandomPrompt()
+  private string GenerateRandomPrompt()
   {
-    // string prompt = String.Empty;
-    _random = new Random();
-    int randomIndex = _random.Next(0, _reflectingPrompts.Count);
-    _randomPrompt = _reflectingPrompts[randomIndex];
-
-    //return _reflectingPrompts[randomIndex];
-    //return prompt;
+    Random random = new Random();
+    int randomIndex = random.Next(0, _reflectingPrompts.Count);
+    return _reflectingPrompts[randomIndex];
   }
 
-  private string GetRandomPrompt()
+  private string GenerateRandomQuestion()
   {
-    return _randomPrompt;
+    Random random = new Random();
+    int randomIndex = random.Next(0, _reflectingQuestions.Count);
+    return _reflectingQuestions[randomIndex];
   }
-
-  private void GenerateRandomQuestion()
-  {
-    _random = new Random();
-    int randomIndex = _random.Next(0, _reflectingQuestions.Count);
-    _randomQuestion = _reflectingQuestions[randomIndex];
-  }
-
-
 }
