@@ -4,16 +4,12 @@ public class Reference
   private string _chapter = String.Empty;
   private string _verse = String.Empty;
   private string _secondVerse = String.Empty;
-
-  public Reference() { }
-
   public Reference(string book, string chapter, string verse)
   {
     _book = book;
     _chapter = chapter;
     _verse = verse;
   }
-
   public Reference(string book, string chapter, string verse, string secondVerse)
   {
     _book = book;

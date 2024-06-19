@@ -52,6 +52,5 @@ class Word
       }
       return underScoreWord;
     }
-
   }
 }

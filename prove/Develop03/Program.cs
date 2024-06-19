@@ -42,10 +42,9 @@ class Program
       scriptRef = new Reference(referenceParts[0], referenceParts[1], referenceParts[3], referenceParts[5]);
       scrip = new Scripture(scriptRef, passages[1][2]);
     }
-
+    Console.WriteLine(scrip.RenderScripture());
     while (stopLoop == false && continueProgram == String.Empty)
     {
-      Console.WriteLine(scrip.RenderScripture());
       Console.WriteLine("Hit Enter to hide the words or type quit to end the program.");
       continueProgram = Console.ReadLine();
       if (continueProgram == "quit")

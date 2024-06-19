@@ -19,14 +19,10 @@ class Scripture
 
   public bool AllWordsHidden()
   {
-    bool allWordsHidden = false;
+    bool allWordsHidden = true;
     foreach (Word word in _scriptureWords)
     {
-      if (word.WordHidden() == true)
-      {
-        allWordsHidden = true;
-      }
-      else
+      if (word.WordHidden() != true)
       {
         allWordsHidden = false;
       }
@@ -34,19 +30,6 @@ class Scripture
     return allWordsHidden;
   }
 
-
-  // HideOneWord:
-  // if all words are hidden, return
-  // choose a random word
-  // while that random word is not hidden:
-  //   choose another random word
-  // hide the word (which is not yet hidden)
-  // return
-
-  // public void HideOneWord()
-  // {
-
-  // }
   public void HideWords()
   {
     Random randNum = new Random();
@@ -66,5 +49,4 @@ class Scripture
     }
     return $"{_reference.ReferenceRenderedText()} {rendScript}";
   }
-
 }
