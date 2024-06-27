@@ -1,0 +1,94 @@
+PlantUML URL
+//www.plantuml.com/plantuml/png/nLHDQzmm4BtxLwYt3Ttz0oQKW3SjWQI4RjjhKUp9HdGiBPhnGZ_slvUnThHo4JsLzcBiDn_lpPCyDyGsyZHYyufVO0GpsaZDks3HNF_SR7PkF238vmMxPOZUuXBiNg3_YevuXfiUBP6PttyqPcE-x8F5ztQ4rX17v_SPt0BrqHtO1R-8SM2BZy5vfjOuppFeg0iYYA4rJo5WxaBtZhWryhmMLdhJDEQrcLzNgQjH2MkZm99-BJIcu5tF7EP2kYu9JEQzchcw29P1OgkhrXo36mJTEZgW_IQmf5P2Zp7i8n19A0cJu0VeGnnkZ-2bHfG9UfUb22ZgPcQB_OIMuMFMhZKdFOfya7eWf40g-6nnWbGZBI_fAp6bbboV-c-EbiNd6vVLWo9r-LgW-ZNzVmrG_Xqw0hiHSicGskIBtuN9ymLx2dwYtt-6FZUjkr2mgWzBJhtmofU-2wu4r7ZKFZKgKwbZBlZIj7_ayrk7SBRtsI4i5uuKIuBk0yr8W-pi4IHQghiFTbXY6xE3w2owxm8M-seBf07jZyw35cQ5dmZYdMU8pxPNgQDr_W7y9B4T8FJBPQWhxiyfVV3yS6wKRCcmc5x0Cbaf8mkkwiZRigxXl2DBzW9IviLTqRpQcbIECjO5538jIz8F4vS7aBEqGpNjrDo07wOHVm40
+
+@startuml
+!theme mars
+Goal <|--SimpleGoal
+Goal <|--EternalGoal
+Goal <|--ChecklistGoal
+
+class Goal
+{
+ - _goalName: string
+ - _goalDescription: string
+ - _totalPoints: int
+ - _isComplete: bool
+ - _goalsList: List<Goals>
+
+ + Goals(string goalName, string goalDescription, int totalPoints, bool isComplete, List<Goals> goalsList)
+
+ + CreateGoal(): void
+ + DisplayGoalList(): void
+ + DisplayProgress(): string
+ + RecordEvent(): int
+ + IsComplete(): bool
+ + CalculateTotalPoint(): int
+}
+
+class SimpleGoal
+{
+ - _simpleGoalPointValue: int
+
+ + SimpleGoal(int simpleGoalPointValue)
+
+ + CreateGoal(): void
+ + DisplayProgress(): string
+ + RecordEvent(): int
+ + IsComplete(): bool
+}
+
+class EternalGoal
+{
+ - _eternalGoalPointValue: int
+
+ + EternalGoal(int eternalGoalPointValue)
+
+ + CreateGoal(): void
+ + DisplayProgress(): string
+ + RecordEvent(): int
+ + IsComplete(): bool
+}
+
+class ChecklistGoal
+{
+ - _timesCompleted: int
+ - _totalCount: int
+ - _bonusPoints: int
+ - _checklistGoalPointValue: int
+
+ + ChecklistGoal(int timesCompleted, int totalCount, int bonusPoints, int checklistGoalPointValue)
+
+ + DisplayChecklistProgression(): string
+ + CreateGoal(): void
+ + DisplayProgress(): string
+ + RecordEvent(): int
+ + IsComplete(): bool
+}
+
+class File
+{
+ - _fileName: string
+ 
+ + File(string fileName)
+
+ + SaveFile(): void
+ + LoadFile(): void
+ - Serialize(): string
+ - Deserialize(string line): void
+}
+
+class UserInterface
+{
+ - _mainMenuUserSelection: string
+ - _goalsMenuUserSelection: string
+ - _contMainMenu: bool
+ - _contGoalMenu: bool
+
+ + UserInterface(string mainMenuUserSelection, string goalsMenuUserSelection, bool contMainMenu, bool contGoalMenu)
+
+ + DisplayMainMenu(): void
+ + DisplayGoalsMenu(): void
+ + CollectMainMenuUserInput(): string
+ + CollectGoalsMenuUserInput(): string
+}
+@enduml
