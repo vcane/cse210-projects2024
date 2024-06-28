@@ -25,6 +25,7 @@ class Program
     {
       Console.WriteLine($"Color: {shape.GetColor()}");
       Console.WriteLine($"Area: {shape.GetArea()}");
+      Console.WriteLine($"Goal type: {shape.GetType()}");
     }
   }
 }
