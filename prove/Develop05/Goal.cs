@@ -1,20 +1,23 @@
-public abstract class Goal
+public class Goal
 {
   protected string _goalName;
   protected string _goalDescription;
   protected string _goalNamePrompt;
   private string _goalDescriptionPrompt;
   private string _goalPointsValuePrompt;
+  private string _marker;
+  protected string _serialized;
   private int _goalPointsValue;
   private int _totalPoints;
-  private bool _isComplete;
+  protected bool _isComplete;
 
 
-  private SimpleGoal _simpleGoal;
+  //private SimpleGoal _simpleGoal;
   // private EternalGoal _eternalGoal;
   // private ChecklistGoal _checklistGoal;
 
-  //public Goal() { }
+  public Goal() { }
+
   public Goal(string goalNamePrompt, string goalDescriptionPrompt, string goalPointsValuePrompt)
   {
     _goalName = String.Empty;
@@ -25,6 +28,8 @@ public abstract class Goal
     _goalPointsValue = 0;
     _totalPoints = 0;
     _isComplete = false;
+    _marker = String.Empty;
+
   }
 
   public string GetGoalName()
@@ -57,6 +62,16 @@ public abstract class Goal
     return _totalPoints;
   }
 
+  public string GetMarker()
+  {
+    return _marker;
+  }
+
+  public void SetMarker()
+  {
+    _marker = "X";
+  }
+
   public virtual int GetTimesCompleted()
   {
     return -1;
@@ -72,61 +87,29 @@ public abstract class Goal
     return _isComplete;
   }
 
-
   public virtual void DisplayTotalPoints()
   {
     Console.WriteLine($"Currently, you have {_totalPoints}.");
   }
+  public virtual void CreateGoal() { }
 
-  public abstract void CreateGoal();
-  // {
-  //   // display goal menu
-  //   // 1. simple goal
-  //   //   create simple goal object
-  //   //   display the prompts
-  //   //   
-  //   //   collect and store user input
-  //   //   added to list
+  public void RecordEvent() // TODO need to work on this.......
+  {
+    GoalStorage gStorage = new GoalStorage();
+    gStorage.DisplayGoalList();
+    Console.Write("Which goal did you accomplish? ");
+    int userInput = int.Parse(Console.ReadLine());
+    //if (userInput == )
+  }
 
-  //   // 2. eternal goal
-  //   //    ....
-  //   Goal goal;
-  //   // Console.WriteLine("""
-  //   // 1. Simple Goal
-  //   // 2. Eternal Goal
-  //   // 3. Checklist Goal    
-  //   // """);
-  //   // Console.Write("Select a type of goal that you want to create. ");
-  //   // string userGoalSelection = Console.ReadLine();
-  //   // TODO create DisplayGoalMenu() for above and return userSelection......
-  //   // TODO create GetUserSelection() return _userSelection;
-  //   // TODO create _userSelection member attribute 
-  //   // TODO in SimpleGoals class create method to override CreateGoal()
+  //Serialize method
+  public virtual string Serialize()
+  {
+    return ""; //$"{GetType()}~~{_goalName}~~{_goalDescription}~~{_goalPointsValue}";
+  }
+  //Deserialize method
+  public virtual void Deserialize(string[] line)
+  {
 
-  //   // if (userGoalSelection == "1")
-  //   // {
-  //   //   goal = new SimpleGoal(_goalNamePrompt, _goalDescriptionPrompt, _goalPointsValuePrompt);
-
-  //   //   //return _simpleGoal;
-  //   // }
-  //   // else if (userGoalSelection == "2")
-  //   // {
-  //   //   goal = new EternalGoal(_goalNamePrompt, _goalDescriptionPrompt, _goalPointsValuePrompt);
-  //   //   //return _eternalGoal;
-  //   // }
-  //   // else
-  //   // {
-  //   //   goal = new ChecklistGoal(_goalNamePrompt, _goalDescriptionPrompt, _goalPointsValuePrompt);
-  //   //   //return _checklistGoal;
-  //   // }
-  //   Console.Write(GetGoalNamePrompt());
-  //   _goalName = Console.ReadLine();
-  //   Console.Write("\n" + GetGoalDescriptionPrompt());
-  //   _goalDescription = Console.ReadLine();
-  //   Console.Write("\n" + GetGoalPointsValuePrompt());
-  //   _goalPointsValue = int.Parse(Console.ReadLine());
-  //   return goal;
-
-  //   //return _eternalGoal; //TODO not correct return NEED to fix!!!!!!!!
-  // }
+  }
 }

@@ -26,11 +26,11 @@ public class GoalStorage
       string goalType = new String($"{_goalsList[i].GetType()}");
       if (goalType == "SimpleGoal" || goalType == "EternalGoal")
       {
-        Console.WriteLine($"[ ] {i + 1}. {_goalsList[i].GetGoalName()} ({_goalsList[i].GetGoalDescription()})");
+        Console.WriteLine($"[{_goalsList[i].GetMarker()}] {i + 1}. {_goalsList[i].GetGoalName()} ({_goalsList[i].GetGoalDescription()})");
       }
       else
       {
-        Console.WriteLine($"[ ] {i + 1}. {_goalsList[i].GetGoalName()} ({_goalsList[i].GetGoalDescription()}) -- Currently completed: {_goalsList[i].GetTimesCompleted()}/{_goalsList[i].GetTimesToComplete()}");
+        Console.WriteLine($"[{_goalsList[i].GetMarker()}] {i + 1}. {_goalsList[i].GetGoalName()} ({_goalsList[i].GetGoalDescription()}) -- Currently completed: {_goalsList[i].GetTimesCompleted()}/{_goalsList[i].GetTimesToComplete()}");
       }
     }
   }

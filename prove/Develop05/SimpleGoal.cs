@@ -16,4 +16,18 @@ public class SimpleGoal : Goal
     Console.Write(GetGoalPointsValuePrompt());
     _simpleGoalPointValue = int.Parse(Console.ReadLine());
   }
+
+  public override string Serialize()
+  {
+    return $"{GetType()}~~{GetGoalName()}~~{GetGoalDescription()}~~{_simpleGoalPointValue}~~{GetIsComplete()}";
+  }
+
+  public override void Deserialize(string[] parts)
+  {
+    //string[] parts = line.Split("~~");
+    _goalName = parts[1];
+    _goalDescription = parts[2];
+    _simpleGoalPointValue = int.Parse(parts[3]);
+    _isComplete = bool.Parse(parts[4]);
+  }
 }

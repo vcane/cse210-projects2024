@@ -51,4 +51,20 @@ public class ChecklistGoal : Goal
     Console.Write(GetNumberOfBonusPointsPrompt());
     _bonusPoints = int.Parse(Console.ReadLine());
   }
+
+  public override string Serialize()
+  {
+    return $"{GetType()}~~{GetGoalName()}~~{GetGoalDescription()}~~{_checklistGoalPointValue}~~{_bonusPoints}~~{_timesToComplete}~~{_timesCompleted}";
+  }
+
+  public override void Deserialize(string[] parts)
+  {
+    //string[] parts = line.Split("~~");
+    _goalName = parts[1];
+    _goalDescription = parts[2];
+    _checklistGoalPointValue = int.Parse(parts[3]);
+    _bonusPoints = int.Parse(parts[4]);
+    _timesToComplete = int.Parse(parts[5]);
+    _timesCompleted = int.Parse(parts[6]);
+  }
 }
