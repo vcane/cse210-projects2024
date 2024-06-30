@@ -9,6 +9,11 @@ public class GoalStorage
     return _goalsList;
   }
 
+  public void SetGoalList(List<Goal> goalList)
+  {
+    _goalsList = goalList;
+  }
+
   public void AddGoal(Goal goal)
   {
     _goalsList.Add(goal);
@@ -16,11 +21,6 @@ public class GoalStorage
 
   public void DisplayGoalList()
   {
-
-    //Console.WriteLine(goalType);
-    // TODO need to add logic here
-    // if GoalType == 
-
     for (int i = 0; i < _goalsList.Count; i++)
     {
       string goalType = new String($"{_goalsList[i].GetType()}");
