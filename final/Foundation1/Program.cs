@@ -1,11 +1,43 @@
 using System;
 // plantuml URL
-// //www.plantuml.com/plantuml/png/LOzDJiCm48NtFiMm8u8JH0WLjKi4ExR8ROR6aZskxES8X7fti3Dfb8qbVsz-ljbbs8GIlBd3o85fSiTa1URaRSxquGQEvjVG0tt2mNDF6Sd9kP6ffYy5OqmRxbdE63T8IZXoUl_Qnn1Oa7joWfQSbBowZ9xg-wH5p-Q_O5QudqTHStWa_Tcs-lQTrtQjw-3onTkVkRdhQOfkg7mVYs2Hg47Lk1ezLmCzMCqulTcmFVmICmuMAwnKcnTLiM4r1NzZ8xOKTxSHLxDZ6KhmVm00
+// //www.plantuml.com/plantuml/png/LO_1IWGn38RlVOfuSz0d64HMrgFepQjqT-9EeKcbJGT5zjqbdSn8BuL-_v_sow68pr8fkXkPaH2MSCgUnPsZBmNUmuJ9_JguWmy94d648ZdmfP55qwSgSyeTZyWNcJl4bKwOtpwFYGXPoWY1fILd8o-Xo0XwFbZfqMcXATokJq5pk0Ux-VRrVbs_7ThKSoXVqV-imyC8ImgJycEgB9k41gfnTRQk1RQmcM5-zTGlBlWjEr1YWvicU_gtr78djPM7_OchEo1FbU8V
 
 class Program
 {
   static void Main(string[] args)
   {
-    Console.WriteLine("Hello Foundation1 World!");
+    List<Video> videoLibrary = new List<Video>();
+
+    // cat video with comments
+    Video video1 = new Video("Cute Cat Videos", "Virgil Cane", "10");
+    Comments comment1 = new Comments("Amanda", "I love your cat video!");
+    Comments comment2 = new Comments("Chrissy", "Your cat videos are awesome!");
+    Comments comment3 = new Comments("Emily", "Your cat videos are outstanding!");
+    video1._commentsList.Add(comment1);
+    video1._commentsList.Add(comment2);
+    video1._commentsList.Add(comment3);
+
+    // dog video with no comments
+    Video video2 = new Video("Dufus the Dog", "Virgil Cane", "13");
+
+    // parrot video with comments
+    Video video3 = new Video("Polly the Parrot", "Virgil Cane", "5");
+    Comments comment4 = new Comments("Sierra", "Meh.");
+    Comments comment5 = new Comments("Charles", "Annoying bird!");
+    Comments comment6 = new Comments("Thomas", "The video is too short! I want more Polly the Parrot!");
+    Comments comment7 = new Comments("Anonymous", "Get better videos!!");
+    video3._commentsList.Add(comment4);
+    video3._commentsList.Add(comment5);
+    video3._commentsList.Add(comment6);
+    video3._commentsList.Add(comment7);
+
+    videoLibrary.Add(video1);
+    videoLibrary.Add(video2);
+    videoLibrary.Add(video3);
+
+    foreach (Video video in videoLibrary)
+    {
+      video.DisplayVideo();
+    }
   }
 }
