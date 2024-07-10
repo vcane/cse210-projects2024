@@ -8,5 +8,9 @@ class Program
   static void Main(string[] args)
   {
     Console.WriteLine("Hello Foundation3 World!");
+    Address addressEvent = new Address("123 Main", "Anytown", "KS", "66610");
+    Event event1 = new Event("Virgil's Event", "An event put on by Virgil.", "1/2/24", "1:00 PM", "Event", addressEvent);
+    Console.WriteLine($"Event standard details:");
+    Console.WriteLine(event1.RenderStandardDetails());
   }
 }
