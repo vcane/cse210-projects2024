@@ -7,31 +7,43 @@ class Program
 {
   static void Main(string[] args)
   {
-    // Console.WriteLine("Hello Foundation2 World!");
-    // Order order1 = new Order(5, 35);
-    // Product product1 = new Product("Plush Cat", "Cat1234", 5, 5);
-    // Product product2 = new Product("Plush Dog", "Dog123", 6, 6);
+    Address address1 = new Address("123 Main", "Anytown", "Kansas", "66610", "US");
+    Address address2 = new Address("246 Main", "Toronto", "Quebec", "12345", "Canada");
 
-    // order1.AddProductToOrder(order1.GetProductsList(), product1);
-    // order1.AddProductToOrder(order1.GetProductsList(), product2);
+    Customer customer1 = new Customer("Virgil Cane", address1);
+    Customer customer2 = new Customer("Joe Eh", address2);
 
-    // order1.GetProductsList().Add(product1);
-    // order1.GetProductsList().Add(product2);
-    // order1.GeneratePackingLabel(order1.GetProductsList());
+    Order order1 = new Order(5, 35, customer1);
+    Product product1 = new Product("Plush Cat", "Cat1234", 5, 5);
+    Product product2 = new Product("Plush Dog", "Dog123", 6, 6);
 
-    // Address address1 = new Address("123 Main", "Anytown", "Kansas", "66610", "US");
-    // Address address2 = new Address("246 Main", "Toronto", "Quebec", "12345", "Canada");
+    order1.GetProductsList().Add(product1);
+    order1.GetProductsList().Add(product2);
 
-    Customer customer1 = new Customer("Virgil Cane", new Address("123 Main", "Anytown", "Kansas", "66610", "US"));
-    //Customer customer2 = new Customer("Joe Eh", address2);
+    Order order2 = new Order(5, 35, customer2);
+    Product product3 = new Product("Red Power Ranger", "PR123", 10, 2);
+    Product product4 = new Product("Pink Power Ranger", "PR456", 10, 3);
 
-    Console.WriteLine($"Customer 1 info: ");
-    Console.WriteLine(customer1.DisplayCustomerInfo());
-    //Console.WriteLine(customer2.DisplayCustomerInfo());
-    //Console.WriteLine($"Address 1 in US?? {address1.CheckIfCountryIsUS()}");
-    // Console.WriteLine($"Address 1:\n{address1.RenderAddress()}");
-    // Console.WriteLine();
-    // Console.WriteLine($"Address 2 in US??? {address2.CheckIfCountryIsUS()}");
-    // Console.WriteLine($"Address 2:\n{address2.RenderAddress()}");
+    order2.GetProductsList().Add(product3);
+    order2.GetProductsList().Add(product4);
+
+    Console.WriteLine("Order for customer 1:");
+    Console.WriteLine($"\nCustomer 1 shipping label: ");
+    Console.WriteLine(order1.RenderShippingLabel(address1, customer1));
+
+    Console.WriteLine("\nHere is packing label for order 1:");
+    order1.GeneratePackingLabel(order1.GetProductsList());
+
+    Console.WriteLine($"\nThe total cost for order 1 is ${order1.CalculateTotalCost(customer1, order1.GetProductsList())}");
+
+    Console.WriteLine("\nOrder for customer 2:");
+
+    Console.WriteLine("\nCustomer 2 shipping label:");
+    Console.WriteLine(order2.RenderShippingLabel(address2, customer2));
+
+    Console.WriteLine("\nHere is packing label for order 2:");
+    order2.GeneratePackingLabel(order2.GetProductsList());
+
+    Console.WriteLine($"\nThe total cost for order 2 is ${order2.CalculateTotalCost(customer2, order2.GetProductsList())}");
   }
 }

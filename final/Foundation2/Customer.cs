@@ -9,14 +9,13 @@ public class Customer
     _address = address;
   }
 
-  // public bool CustomerInUS(Address address)
-  // {
-  //   return address.CheckIfCountryIsUS();
-  // }
-
-  public void DisplayCustomerInfo()
+  public bool CustomerInUS()
   {
-    Console.WriteLine(_customerName);
-    Console.WriteLine(_address.RenderAddress());
+    return _address.CheckIfCountryIsUS();
+  }
+
+  public string GetCustomerName()
+  {
+    return _customerName;
   }
 }
