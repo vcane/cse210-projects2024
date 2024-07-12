@@ -15,15 +15,6 @@ public class Address
     //_country = country;
   }
 
-  // public bool CheckIfCountryIsUS()
-  // {
-  //   if (_country == "US" || _country == "U.S." || _country == "United States")
-  //   {
-  //     return true;
-  //   }
-  //   return false;
-  // }
-
   public string RenderAddress()
   {
     return $"""

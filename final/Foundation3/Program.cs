@@ -9,8 +9,27 @@ class Program
   {
     Console.WriteLine("Hello Foundation3 World!");
     Address addressEvent = new Address("123 Main", "Anytown", "KS", "66610");
-    Event event1 = new Event("Virgil's Event", "An event put on by Virgil.", "1/2/24", "1:00 PM", "Event", addressEvent);
-    Console.WriteLine($"Event standard details:");
-    Console.WriteLine(event1.RenderStandardDetails());
+
+    Lecture lecture = new Lecture("Gravity really pulls you down", "Lecture on gravity", "7/11/22", "10 AM", "Lecture", addressEvent.RenderAddress(), "Virgil Cane", 1000);
+
+    Lecture lecture1 = new Lecture("Buoyancy is really bouncy.", "Bouncy lecture", "7/11/24", "10 am", "Lecture", addressEvent.RenderAddress(), "Virgil Cane", 100000);
+
+    Console.WriteLine($"Virgil's Lecture Short Description: ");
+    Console.WriteLine(lecture.RenderShortDescription());
+
+    Console.WriteLine("\nVirgil's Lecture Standard Details:");
+    Console.WriteLine(lecture.RenderStandardDetails());
+
+    Console.WriteLine("\nVirgil's Lecture Full Details:");
+    Console.WriteLine(lecture.RenderFullDetailsForLecture());
+
+    Console.WriteLine("\nLecture Short Description: ");
+    Console.WriteLine(lecture1.RenderShortDescription());
+
+    Console.WriteLine("\nLecture Standard Details:");
+    Console.WriteLine(lecture1.RenderStandardDetails());
+
+    Console.WriteLine("\nLecture Full Details:");
+    Console.WriteLine(lecture1.RenderFullDetailsForLecture());
   }
 }

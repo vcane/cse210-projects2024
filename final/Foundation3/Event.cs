@@ -7,14 +7,14 @@ public class Event
   protected string _eventType;
   protected string _address;
 
-  public Event(string eventTitle, string description, string date, string time, string eventType, Address address)
+  public Event(string eventTitle, string description, string date, string time, string eventType, string address)
   {
     _eventTitle = eventTitle;
     _description = description;
     _date = date;
     _time = time;
     _eventType = eventType;
-    _address = address.RenderAddress();
+    _address = address;
   }
 
   public string RenderStandardDetails()
@@ -29,6 +29,17 @@ public class Event
 
   public string RenderShortDescription()
   {
-    return "";
+    return $"""
+    Type of event: {_eventType}
+    Event title: {_eventTitle}
+    Date of event: {_date}    
+    """;
   }
+
+  // public string RenderFullDetails()
+  // {
+  //   return $"""
+  //   {RenderStandardDetails()}
+  //   """;
+  // }
 }
