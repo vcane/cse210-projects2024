@@ -23,6 +23,7 @@ public class Event
     Event title: {_eventTitle}
     Event description: {_description}
     Date of event: {_date}
+    Time of event: {_time}
     Address: {_address}
     """;
   }
@@ -35,11 +36,4 @@ public class Event
     Date of event: {_date}    
     """;
   }
-
-  // public string RenderFullDetails()
-  // {
-  //   return $"""
-  //   {RenderStandardDetails()}
-  //   """;
-  // }
 }

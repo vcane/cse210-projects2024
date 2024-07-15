@@ -9,19 +9,6 @@ public class Lecture : Event
     _capacity = capacity;
   }
 
-  public string GetSpeakerName()
-  {
-    return _speakerName;
-  }
-
-  public int GetCapacity()
-  {
-    return _capacity;
-  }
-
-  // string speakerName, int capacity
-  // base._eventTitle, base._description, base._date, base._time
-
   public string RenderFullDetailsForLecture()
   {
     return $"""
