@@ -1,12 +1,18 @@
-using System;
-
-// plantuml URL
-// //www.plantuml.com/plantuml/dpng/lP9BJiCm48RtFiKWDebeBX2nAAWR92GgUW0qIQPWoNOgUrmK7dUdaqSeoO8keDkP_p5VucLWz1ojKHVyGfPWhmkFZjLDoNglkO7hZoo3n-YSTi-JwOQHTUtGDxUwR4f3q_shjlPWkyTTk7FhkZPAbGP3W46dtXLSmbE5J3a4zj8X0-ptg-ZRYXoqOwNWQdGcdHh4kf0jJ3rfgr_fmEXAIj8SjgP6bk5cHrJzcAnnAedMejTlD1QcuuMV0qR_MOGYEr3qLNsAr0-AtwzTT2OOGbB8eS10IMVvGxZX-ldlwpc211n3p8IduxHPvs2PFxKEnaLRa7_OokBx5Stbfo39z3ZlNxcMvAfepHS0
-
 class Program
 {
   static void Main(string[] args)
   {
-    Console.WriteLine("Hello Foundation4 World!");
+    List<Activity> activities = new List<Activity>();
+    Running running = new Running("7/12/22", 30, 5.1f);
+    Cycling cycling = new Cycling("7/13/24", 30, 10.1f);
+    Swimming swimming = new Swimming("8/1/23", 60, 45);
+    activities.Add(running);
+    activities.Add(cycling);
+    activities.Add(swimming);
+
+    foreach (Activity activity in activities)
+    {
+      Console.WriteLine(activity.SummarizeActivity());
+    }
   }
 }
