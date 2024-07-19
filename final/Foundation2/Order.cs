@@ -4,6 +4,7 @@ public class Order
   private int _foreignShippingFee;
   private List<Product> _products;
   private Customer _customer;
+  //private Address _address;
 
   public Order(int usShipping, int foreignShippingFee, Customer customer)
   {
@@ -11,6 +12,7 @@ public class Order
     _foreignShippingFee = foreignShippingFee;
     _products = new List<Product>();
     _customer = customer;
+    //_address = address;
   }
 
   public List<Product> GetProductsList()
@@ -22,26 +24,27 @@ public class Order
   {
     foreach (Product product in productList)
     {
-      Console.WriteLine($"Product Name: {product.GetProductName()} -- Id: {product.GetProductId()} -- Subtotal: ${product.CalculateSubtotal()}");
+      Console.WriteLine($"{product.RenderProductInfo()}");
     }
   }
 
-  public string RenderShippingLabel(Address address, Customer customer)
+  public string RenderShippingLabel()//Address address, Customer customer
   {
-    return $"""
-    {customer.GetCustomerName()}
-    {address.RenderAddress()}
-    """;
+    // return $"""
+    // {_customer.GetCustomerName()}
+    // {_address.RenderAddress()}
+    // """;
+    return $"{_customer.RenderCustomerInfo()}";
   }
 
-  public int CalculateTotalCost(Customer customer, List<Product> products)
+  public int CalculateTotalCost(List<Product> products) //Customer customer,
   {
     int subtotal = 0;
     foreach (Product product in products)
     {
       subtotal += product.CalculateSubtotal();
     }
-    if (customer.CustomerInUS() == true)
+    if (_customer.CustomerInUS() == true)
     {
       return _usShippingFee + subtotal;
     }

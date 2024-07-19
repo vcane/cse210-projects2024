@@ -13,14 +13,9 @@ public class Product
     _quantity = quantity;
   }
 
-  public string GetProductName()
+  public string RenderProductInfo()
   {
-    return _productName;
-  }
-
-  public string GetProductId()
-  {
-    return _productId;
+    return $"Product Name: {_productName} -- Product Id: {_productId} -- Subtotal: ${CalculateSubtotal()}";
   }
 
   public int CalculateSubtotal()
