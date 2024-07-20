@@ -3,18 +3,14 @@ public class Video
   public string _title;
   public string _videoCreator;
   public string _length;
-  public List<Comments> _commentsList;
+  public List<Comment> _commentsList;
 
-  public Video(string title, string videoCreator, string length, params Comments[] commentsList)
+  public Video(string title, string videoCreator, string length)
   {
     _title = title;
     _videoCreator = videoCreator;
     _length = length;
-    _commentsList = new List<Comments>();
-    foreach (Comments comment in commentsList)
-    {
-      _commentsList.Add(comment);
-    }
+    _commentsList = new List<Comment>();
   }
 
   public void DisplayVideo()
@@ -28,15 +24,20 @@ public class Video
     """);
     if (CountComments(_commentsList) > 0)
     {
-      foreach (Comments comment in _commentsList)
+      foreach (Comment comment in _commentsList)
       {
         Console.WriteLine(comment.RenderComment() + "\n");
       }
     }
   }
 
-  public int CountComments(List<Comments> commentsList)
+  public int CountComments(List<Comment> commentsList)
   {
     return commentsList.Count;
+  }
+
+  public void AddComment(Comment comment)
+  {
+    _commentsList.Add(comment);
   }
 }

@@ -1,9 +1,9 @@
-public class Comments
+public class Comment
 {
   public string _commenterName;
   public string _text;
 
-  public Comments(string commenterName, string text)
+  public Comment(string commenterName, string text)
   {
     _commenterName = commenterName;
     _text = text;
