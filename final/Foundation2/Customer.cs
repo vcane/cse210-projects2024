@@ -14,10 +14,6 @@ public class Customer
     return _address.CheckIfCountryIsUS();
   }
 
-  // public string GetCustomerName()
-  // {
-  //   return _customerName;
-  // }
   public string RenderCustomerInfo()
   {
     return $"""
