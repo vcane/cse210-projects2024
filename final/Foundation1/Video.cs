@@ -5,12 +5,16 @@ public class Video
   public string _length;
   public List<Comments> _commentsList;
 
-  public Video(string title, string videoCreator, string length)
+  public Video(string title, string videoCreator, string length, params Comments[] commentsList)
   {
     _title = title;
     _videoCreator = videoCreator;
     _length = length;
     _commentsList = new List<Comments>();
+    foreach (Comments comment in commentsList)
+    {
+      _commentsList.Add(comment);
+    }
   }
 
   public void DisplayVideo()
