@@ -2,14 +2,11 @@ class Program
 {
   static void Main(string[] args)
   {
-    Console.WriteLine("Hello Foundation3 World!");
-    Address addressEvent = new Address("123 Main", "Anytown", "KS", "66610");
+    Lecture lecture = new Lecture("Gravity really pulls you down", "Lecture on gravity", "7/11/22", "10 AM", new Address("123 Main", "Anytown", "KS", "66610"), "Virgil Cane", 1000);
 
-    Lecture lecture = new Lecture("Gravity really pulls you down", "Lecture on gravity", "7/11/22", "10 AM", "Lecture", addressEvent.RenderAddress(), "Virgil Cane", 1000);
+    OutdoorGathering outdoorGathering = new OutdoorGathering("Stargazing event", "Bring your telescope and watch the stars with us.", "7/14/24", "10 pm", new Address("123 Main", "Anytown", "KS", "66610"), "warm with clear skies");
 
-    OutdoorGathering outdoorGathering = new OutdoorGathering("Stargazing event", "Bring your telescope and watch the stars with us.", "7/14/24", "10 pm", "Outdoor Gathering", addressEvent.RenderAddress(), "warm with clear skies");
-
-    Reception reception = new Reception("Smith's Wedding Reception", "Join us for Jon and Debbie Smith's wedding reception.", "7/14/23", "7 PM", "Reception", addressEvent.RenderAddress(), "joan@joansweddingplanning.com");
+    Reception reception = new Reception("Smith's Wedding Reception", "Join us for Jon and Debbie Smith's wedding reception.", "7/14/23", "7 PM", new Address("123 Main", "Anytown", "KS", "66610"), "joan@joansweddingplanning.com");
 
     Console.WriteLine($"Virgil's Lecture Short Description: ");
     Console.WriteLine(lecture.RenderShortDescription());

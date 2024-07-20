@@ -2,7 +2,7 @@ public class Reception : Event
 {
   private string _emailAddress;
 
-  public Reception(string eventTitle, string description, string date, string time, string eventType, string address, string emailAddress) : base(eventTitle, description, date, time, eventType, address)
+  public Reception(string eventTitle, string description, string date, string time, Address address, string emailAddress) : base(eventTitle, description, date, time, address)
   {
     _emailAddress = emailAddress;
   }

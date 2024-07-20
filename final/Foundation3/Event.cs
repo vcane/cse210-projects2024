@@ -4,16 +4,14 @@ public class Event
   protected string _description;
   protected string _date;
   protected string _time;
-  protected string _eventType;
-  protected string _address;
+  protected Address _address;
 
-  public Event(string eventTitle, string description, string date, string time, string eventType, string address)
+  public Event(string eventTitle, string description, string date, string time, Address address)
   {
     _eventTitle = eventTitle;
     _description = description;
     _date = date;
     _time = time;
-    _eventType = eventType;
     _address = address;
   }
 
@@ -24,14 +22,14 @@ public class Event
     Event description: {_description}
     Date of event: {_date}
     Time of event: {_time}
-    Address: {_address}
+    Address: {_address.RenderAddress()}
     """;
   }
 
   public string RenderShortDescription()
   {
     return $"""
-    Type of event: {_eventType}
+    Type of event: {GetType()}
     Event title: {_eventTitle}
     Date of event: {_date}    
     """;
