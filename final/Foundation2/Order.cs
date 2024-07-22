@@ -13,11 +13,6 @@ public class Order
     _customer = customer;
   }
 
-  public List<Product> GetProductsList()
-  {
-    return _products;
-  }
-
   public void GeneratePackingLabel()
   {
     foreach (Product product in _products)
