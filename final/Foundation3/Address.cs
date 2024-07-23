@@ -15,8 +15,6 @@ public class Address
 
   public string RenderAddress()
   {
-    return $"""
-    {_streetAddress}, {_city}, {_state} {_zipCode}
-    """;
+    return $"{_streetAddress}, {_city}, {_state} {_zipCode}";
   }
 }
